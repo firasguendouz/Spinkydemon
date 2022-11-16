@@ -1,0 +1,209 @@
+<html>
+
+<head>
+
+<title>Avatar Maker</title>
+
+<!-- add the JavaScript code -->
+
+<script>
+
+// Run the code as soon as the window loads
+
+window.onload = function ()
+
+{
+
+// Add section of code for each body part to generate a random image file name
+
+
+
+// Skins
+
+var skin = new Image();
+
+var skinnum = Math.floor(Math.random()* 3 )+1;
+
+var skinname="Skin" + skinnum + ".png";
+
+skin.src = skinname;
+
+// Hats
+
+var hat = new Image();
+
+var hatnum = Math.floor(Math.random() * 25 )+1;
+
+var hatname="Hat" + hatnum + ".png" ;
+
+hat.src = hatname;
+
+// MOUTHS
+
+var mouth = new Image();
+
+var mouthnum = Math.floor(Math.random() * 11 )+1;
+
+var mouthname="Mouth" + mouthnum + ".png";
+
+mouth.src = mouthname;
+
+// EYES
+
+var eyes = new Image();
+
+var eyesnum = Math.floor(Math.random() * 11 )+1;
+var eyesname="Eyes" + eyesnum + ".png";
+
+eyes.src = eyesname;
+
+
+// BEARDS
+
+var beard = new Image();
+
+var beardnum = Math.floor(Math.random() * 6 )+1;
+
+var beardname="Beard" + beardnum + ".png";
+
+beard.src = beardname;
+
+// Glasses
+
+var glasses = new Image();
+
+var glassesnum = Math.floor(Math.random() * 12 )+1;
+
+var glassesname="Glasses" + glassesnum+".png";
+
+glasses.src = glassesname;
+
+
+
+
+// Wait until body part is loaded and then call the function that displays all images
+
+// Skins
+
+skin.onload = function () {
+buildrobot ();
+
+}
+
+// HATS
+
+hat.onload = function () {
+buildrobot();
+
+}
+
+// BEARDS
+
+beard.onload = function () {
+buildrobot ();
+
+}
+
+// MOUTHS
+
+mouth.onload = function () {
+buildrobot ();
+
+}
+
+// EYES
+
+eyes.onload = function () {
+
+buildrobot ();
+
+
+
+
+
+// GLASSES
+
+glasses.onload = function () {
+buildrobot ();
+
+}
+
+}
+
+
+// This is the function that displays all images
+
+function buildrobot()
+{
+var canvas =document.getElementById('canvas');
+var ctx = canvas.getContext('2d' );
+
+canvas.width = 448;
+canvas.height = 448;
+
+// ADD RANDOM BACKGROUND COLOUR
+var r=Math.floor(Math.random()*(255-100+1)+100);
+var g=Math.floor(Math.random()*(255-100+1)+100);
+var b=Math.floor(Math.random()*(255-100+1)+100);
+var bgcol = "#" + r.toString(16) + g.toString(16) + b.toString(16);
+ctx.fillStyle = bgcol;
+ctx.fillRect(0, 0, 448, 448);
+
+// This is the list of all parts and where they should go (centered, and height)
+
+// SKINS
+
+
+ctx.drawImage(skin, ((448-skin.width)/2), 0);
+
+// HATS
+
+ctx.drawImage(hat, ((448-hat.width)/2), 0);
+
+//BEARDS
+
+ctx.drawImage(beard, ((448-beard.width)/2), 0);
+
+// MOUTHS
+
+ctx.drawImage(mouth, ((448-mouth.width)/2), 0);
+
+// EYES
+
+ctx.drawImage(eyes, ((448-eyes.width)/2), 0);
+
+// GLASSES
+
+ctx.drawImage(glasses, ((448-glasses.width)/2), 0);
+
+
+}
+
+}
+
+</script>
+
+</head>
+
+<body bgcolor="#202020">
+
+<div align="center">
+
+<br><br>
+
+<img src="SpinkyBloodyLogo.png">
+<br><br><br><br>
+
+<!--Draw the canvas, centered, add the border width and colour -->
+
+<canvas id="canvas" style="border: 5px solid #000000;"></canvas>
+
+<br><br><br><br>
+
+<!--Create a button that reloads the page, generating a new image -->
+
+<button style="font-size: 50px; width: 25%; height: 100px;" onClick="window.location.reload();">Generate
+</button>
+</div>
+</body>
+</html>
